@@ -1,0 +1,31 @@
+export interface Classification {
+  id: number;
+  idCampeonato: number;
+  rodada: number;
+  fase: string;
+  campeonato: string;
+  posicao: number;
+  equipe: string;
+  jogos: number;
+  idEquipe: number;
+  golsPro: number;
+  golsContra: number;
+  saldoDeGols: number;
+  aproveitamento: number;
+  vitorias: number;
+  empates: number;
+  derrotas: number;
+  vitoriasMandante: number;
+  empatesMandante: number;
+  derrotasMandante: number;
+  vitoriasVisitante: number;
+  empatesVisitante: number;
+  derrotasVisitante: number;
+  cartoesAmarelos: number;
+  cartoesVermelhos: number;
+  grupo: null | string;
+  divisao: null | string;
+  pontos: number;
+  maximoPontosPossivel: number;
+  nomeDaTaca: string;
+}
