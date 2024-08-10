@@ -2,7 +2,9 @@ import fastify from "fastify";
 import routes from "@/http/routes";
 import { env } from "./env";
 
-export const app = fastify();
+export const app = fastify({
+  logger: env.NODE_ENV !== "test",
+});
 
 app.register(routes);
 
