@@ -1,5 +1,5 @@
 # Usar uma imagem base oficial do Node.js com suporte a TypeScript
-FROM node:20
+FROM node:slim
 
 # Definir o diretório de trabalho dentro do container
 WORKDIR ./
