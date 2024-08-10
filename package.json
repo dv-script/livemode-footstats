@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsup src/server.ts --out-dir build",
-    "start": "node build/server.js"
+    "build": "tsup src/server.ts --out-dir build --format cjs",
+    "start": "node build/server.cjs"
   },
   "keywords": [],
   "author": "",
