@@ -1,23 +1,26 @@
-# Usar uma imagem base oficial do Node.js com suporte a TypeScript
-FROM node:slim
+# Use a imagem base do Node.js 20
+FROM node:20-slim
 
-# Definir o diretório de trabalho dentro do container
-WORKDIR ./
+# Defina o diretório de trabalho dentro do container
+WORKDIR /app
 
-# Copiar o package.json e o package-lock.json
+# Copie o arquivo package.json e package-lock.json para o diretório de trabalho
 COPY package*.json ./
 
-# Instalar as dependências, incluindo as devDependencies, porque você precisa compilar o TypeScript
+# Instale as dependências
 RUN npm install
 
-# Copiar o restante da aplicação para o diretório de trabalho no container
+# Copie todo o código da aplicação para o diretório de trabalho
 COPY . .
 
-# Compilar o código TypeScript
+# Compile o código TypeScript para JavaScript
 RUN npm run build
 
-# Expor a porta que a aplicação irá utilizar
+# Verifique se o arquivo server.cjs foi gerado corretamente
+RUN ls -la build/
+
+# Exponha a porta em que a aplicação vai rodar
 EXPOSE 3333
 
-# Comando para rodar a aplicação
+# Defina o comando para iniciar a aplicação
 CMD ["npm", "start"]
