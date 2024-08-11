@@ -5,7 +5,9 @@ const envSchem = z.object({
   NODE_ENV: z.enum(["dev", "production", "test"]).default("dev"),
   PORT: z.coerce.number().default(3333),
   API_URL: z.string().default("https://gather-api.footstats.com.br/"),
-  API_TOKEN: z.string().default(""),
+  API_SECRET: z.string({ message: "API_SECRET is required" }),
+  CLIENT_SECRET: z.string({ message: "CLIENT_SECRET is required" }),
+  CLIENT_ID: z.string({ message: "CLIENT_ID is required" }),
 });
 
 const _env = envSchem.safeParse(process.env);
