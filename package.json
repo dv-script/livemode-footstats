@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsup src/server.ts --out-dir build --format cjs",
-    "start": "node build/server.cjs"
+    "start": "node build/server.cjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +26,8 @@
     "globals": "15.8.0",
     "tsup": "^8.2.3",
     "tsx": "^4.16.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5",
+    "vite-tsconfig-paths": "4.3.2"
   }
 }
