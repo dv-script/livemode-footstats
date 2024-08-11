@@ -1,6 +1,13 @@
+import { ApiTeamRepository } from "@/repositories/api/api-team.repository";
 import { FetchChampionshipTableUseCase } from "../fetch-championship-table.usecase";
-import { ApiChampionshipTableRepository } from "@/repositories/api/api-championship-table.repository";
+import { ApiClassificationsRepository } from "@/repositories/api/api-classification.repository";
 
 export function makeFetchChampionshipTableUseCase() {
-  return new FetchChampionshipTableUseCase(new ApiChampionshipTableRepository());
+  const apiTeamRepository = new ApiTeamRepository();
+  const apiClassificationsRepository = new ApiClassificationsRepository();
+
+  return new FetchChampionshipTableUseCase(
+    apiTeamRepository,
+    apiClassificationsRepository
+  );
 }
