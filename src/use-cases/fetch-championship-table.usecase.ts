@@ -2,6 +2,7 @@ import { ChampionshipTable } from "@/interfaces/championship-table";
 import { ClassificationRepository } from "@/repositories/classification.repository";
 import { TeamRepository } from "@/repositories/team.repository";
 import { TeamNotFoundError } from "./errors/team-not-found.error";
+import { getTeamName } from "@/utils/get-team-name";
 
 interface FetchChampionshipTableUseCaseRequest {
   championshipId: number
@@ -52,7 +53,7 @@ export class FetchChampionshipTableUseCase {
           maximoPontosPossivel: classification.maximoPontosPossivel,
           vitoriasMandante: classification.vitoriasMandante,
           vitoriasVisitante: classification.vitoriasVisitante,
-          apelidoEquipe: team.nome,
+          apelidoEquipe: getTeamName(classification.equipe),
           SiglaTime: team.sigla,
           URLlogo: team.urlLogo,
         };
