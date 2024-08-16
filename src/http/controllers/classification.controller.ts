@@ -2,7 +2,7 @@ import { makeFetchChampionshipTableUseCase } from "@/use-cases/factories/fetch-c
 import { FastifyRequest, FastifyReply } from "fastify";
 
 export async function classification(
-  request: FastifyRequest<{ Params: { championshipId: string } }>,
+  request: FastifyRequest<{ Params: { championshipId: number } }>,
   reply: FastifyReply
 ) {
   const fetchChampionshipTableUseCase = makeFetchChampionshipTableUseCase();
